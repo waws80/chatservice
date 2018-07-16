@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var socket = new WebSocket('ws://192.168.0.188:8080/socket/chat/b');
+
+    // Add an event listener for when a connection is open
+    socket.onopen = function() {
+        console.log('WebSocket connection opened. Ready to send messages.');
+
+        // Send a message to the server
+        socket.send('Hello, from client!');
+    };
+
+    // Add an event listener for when a message is received from the server
+    socket.onmessage = function(message) {
+        console.log('Message received from server: ' + message.data);
+    };
+
+</script>
+
+</body>
+</html>
